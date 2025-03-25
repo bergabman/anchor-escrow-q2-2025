@@ -57,7 +57,7 @@ impl<'info> Refund<'info> {
             from: self.vault.to_account_info(),
             mint: self.mint_a.to_account_info(),
             to: self.maker_ata_a.to_account_info(),
-            authority: self.maker.to_account_info()
+            authority: self.escrow.to_account_info()
         };
 
         let tranfer_cpi_ctx = CpiContext::new_with_signer(self.token_program.to_account_info(), transfer_accounts, &signer_seeds);
